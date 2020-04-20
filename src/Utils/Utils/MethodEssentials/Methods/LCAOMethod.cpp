@@ -8,7 +8,7 @@
 #include "LCAOMethod.h"
 #include "OverlapCalculator.h"
 #include "StructureDependentInitializer.h"
-#include <Utils/IO/Logger.h>
+//#include <Utils/IO/Logger.h>
 #include <Utils/Math/AutomaticDifferentiation/MethodsTypesHelper.h>
 #include <Utils/MethodEssentials/Methods/ElectronicContributionCalculator.h>
 #include <Utils/MethodEssentials/Methods/RepulsionCalculator.h>
@@ -74,7 +74,7 @@ void LCAOMethod::setMolecularOrbitals(MolecularOrbitals C) {
 
 void LCAOMethod::setUnrestrictedCalculation(bool b) {
   if (b && !unrestrictedCalculationPossible()) {
-    Utils::Log::error() << "Not possible to run unrestricted calculations with this method.";
+//    Utils::Log::error() << "Not possible to run unrestricted calculations with this method.";
     b = false;
   }
 
@@ -102,7 +102,7 @@ double LCAOMethod::getHomoLumoGap() const {
     return LcaoUtil::HomoLumoGapCalculator::calculate(singleParticleEnergies_, occupation_);
   }
   catch (LcaoUtil::HomoLumoGapException& e) {
-    Utils::Log::warning(e.what());
+//    Utils::Log::warning(e.what());
     return -1;
   }
 }
@@ -142,14 +142,14 @@ void LCAOMethod::verifyPesValidity() {
 void LCAOMethod::verifyChargeValidity() {
   // Verify that the charge is not too positive (not taking away more electrons than available)
   if (molecularCharge_ > nElectronsForUnchargedSpecies_) {
-    Utils::Log::error() << "The chosen molecular charge (" << molecularCharge_ << ") is too positive. Setting it to "
-                        << nElectronsForUnchargedSpecies_ << ".";
+//    Utils::Log::error() << "The chosen molecular charge (" << molecularCharge_ << ") is too positive. Setting it to "
+//                        << nElectronsForUnchargedSpecies_ << ".";
     molecularCharge_ = nElectronsForUnchargedSpecies_;
   }
   else if (nElectronsForUnchargedSpecies_ - molecularCharge_ > 2 * nAOs_) {
     auto newCharge = (2 * nAOs_ - nElectronsForUnchargedSpecies_) * (-1);
-    Utils::Log::error() << "Not enough orbitals to accommodate the chosen molecular charge (" << molecularCharge_
-                        << "). Setting it to " << newCharge << ".";
+//    Utils::Log::error() << "Not enough orbitals to accommodate the chosen molecular charge (" << molecularCharge_
+//                        << "). Setting it to " << newCharge << ".";
     molecularCharge_ = newCharge;
   }
   nElectrons_ = nElectronsForUnchargedSpecies_ - molecularCharge_;
@@ -157,15 +157,15 @@ void LCAOMethod::verifyChargeValidity() {
 
 void LCAOMethod::verifyMultiplicityValidity() {
   if (spinMultiplicity_ > nElectrons_ + 1) {
-    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
-                          << ") is too large (not enough electrons). Setting it to " << nElectrons_ + 1 << ".";
+//    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
+//                          << ") is too large (not enough electrons). Setting it to " << nElectrons_ + 1 << ".";
     spinMultiplicity_ = nElectrons_ + 1;
   }
   int numberSpotsLeftForElectrons = 2 * nAOs_ - nElectrons_;
   if (spinMultiplicity_ > numberSpotsLeftForElectrons + 1) {
-    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
-                          << ") is too large (not enough orbitals). Setting it to " << numberSpotsLeftForElectrons + 1
-                          << ".";
+//    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
+//                          << ") is too large (not enough orbitals). Setting it to " << numberSpotsLeftForElectrons + 1
+//                          << ".";
     spinMultiplicity_ = numberSpotsLeftForElectrons + 1;
   }
   // Check that number of electrons and spin multiplicity are compatible
@@ -173,17 +173,17 @@ void LCAOMethod::verifyMultiplicityValidity() {
     int newMultiplicity = 1;
     if (nElectrons_ % 2 == 1)
       newMultiplicity = 2;
-    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
-                          << ") is not compatible with the molecular charge (" << molecularCharge_
-                          << "). Setting it to " << newMultiplicity << ".";
+//    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
+//                          << ") is not compatible with the molecular charge (" << molecularCharge_
+//                          << "). Setting it to " << newMultiplicity << ".";
     spinMultiplicity_ = newMultiplicity;
   }
 }
 
 void LCAOMethod::verifyUnrestrictedValidity() {
   if (spinMultiplicity_ > 1 && !unrestrictedCalculationRunning_) {
-    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
-                          << ") requires an unrestricted calculation. Setting UHF calculation.";
+//    Utils::Log::warning() << "The chosen spin multiplicity (" << spinMultiplicity_
+//                          << ") requires an unrestricted calculation. Setting UHF calculation.";
     setUnrestrictedCalculation(true);
   }
 }

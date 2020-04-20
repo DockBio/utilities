@@ -6,7 +6,7 @@
  */
 
 #include "SCFMethod.h"
-#include <Utils/IO/Logger.h>
+//#include <Utils/IO/Logger.h>
 #include <Utils/Math/AutomaticDifferentiation/Second3D.h>
 #include <Utils/MethodEssentials/Methods/DensityMatrixGuessCalculator.h>
 #include <Utils/MethodEssentials/Methods/ElectronicContributionCalculator.h>

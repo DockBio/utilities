@@ -6,7 +6,6 @@
  */
 #ifndef UTILS_LOGGER_H_
 #define UTILS_LOGGER_H_
-
 #include <memory>
 #include <sstream>
 #include <string>
@@ -22,6 +21,7 @@ namespace Utils {
  * Logging can be started with startConsoleLogging() or startFileLogging().
  * It is possible to have several files for logging.
  */
+
 class Log {
   struct ChainedLogger;
 

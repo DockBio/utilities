@@ -7,7 +7,7 @@
 
 #include "RandomOrbitalMixer.h"
 #include "UniqueRandomNumbersGenerator.h"
-#include <Utils/IO/Logger.h>
+//#include <Utils/IO/Logger.h>
 #include <Utils/MethodEssentials/util/MolecularOrbitals.h>
 #include <random>
 
@@ -39,7 +39,7 @@ void RandomOrbitalMixer::mix() {
   checkValidNumberOfMixes();
 
   if (invalidMolecularOrbitals(orbitals_)) {
-    Utils::Log::warning() << "Cannot mix the molecular orbitals since they are invalid.";
+//    Utils::Log::warning() << "Cannot mix the molecular orbitals since they are invalid.";
     return;
   }
 

@@ -4,6 +4,8 @@
  *            Copyright ETH Zurich, Laboratory for Physical Chemistry, Reiher Group.\n
  *            See LICENSE.txt for details.
  */
+// IDW: 2020-04-20 boost logger causes compilation issues for me, so remove it all
+/*
 #include "Utils/IO/Logger.h"
 #include <boost/core/null_deleter.hpp>
 #include <boost/log/core/core.hpp>
@@ -194,6 +196,6 @@ Log::ChainedLogger::~ChainedLogger() {
   if (pImpl_->isActive())
     BOOST_LOG_SEV(pImpl_->logger_, getBoostSeverity(level)) << os.str();
 }
-
+*/
 } /* namespace Utils */
 } /* namespace Scine */

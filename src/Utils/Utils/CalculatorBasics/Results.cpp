@@ -23,6 +23,7 @@ struct Results::Impl {
   boost::optional<Eigen::MatrixXd> oneElectronMatrix;
   boost::optional<SpinAdaptedMatrix> twoElectronMatrix;
   boost::optional<BondOrderCollection> bondOrders;
+  boost::optional<MolecularOrbitals> orbitals;
 };
 
 Results::Results() : pImpl_(std::make_unique<Impl>()) {
@@ -53,6 +54,8 @@ Results::Results(const Results& rhs) : Results() {
     setTwoElectronMatrix(rhs.getTwoElectronMatrix());
   if (rhs.hasBondOrders())
     setBondOrders(rhs.getBondOrders());
+  if (rhs.hasMolecularOrbitals())
+    setMolecularOrbitals(rhs.getMolecularOrbitals());
 }
 
 Results& Results::operator=(const Results& rhs) {
@@ -300,6 +303,30 @@ BondOrderCollection Results::takeBondOrders() {
   auto bondOrders = std::move(*pImpl_->bondOrders);
   pImpl_->bondOrders = boost::none;
   return bondOrders;
+}
+
+bool Results::hasMolecularOrbitals() const {
+  return static_cast<bool>(pImpl_->orbitals);
+}
+
+void Results::setMolecularOrbitals(Utils::MolecularOrbitals orbitals) {
+  pImpl_->orbitals = std::move(orbitals);
+}
+
+const Utils::MolecularOrbitals& Results::getMolecularOrbitals() const {
+  if (!hasMolecularOrbitals()) {
+    throw PropertyNotPresentException();
+  }
+  return *pImpl_->orbitals;
+}
+
+Utils::MolecularOrbitals Results::takeMolecularOrbitals() {
+  if (!hasMolecularOrbitals()) {
+    throw PropertyNotPresentException();
+  }
+  auto orbitals = std::move(*pImpl_->orbitals);
+  pImpl_->orbitals = boost::none;
+  return orbitals;
 }
 
 } // namespace Utils

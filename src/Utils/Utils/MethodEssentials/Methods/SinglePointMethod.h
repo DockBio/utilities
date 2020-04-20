@@ -9,7 +9,7 @@
 #define UTILS_SINGLEPOINTMETHOD_H
 
 #include <Utils/Bonds/BondOrderCollection.h>
-#include <Utils/IO/Logger.h>
+//#include <Utils/IO/Logger.h>
 #include <Utils/Math/AtomicSecondDerivativeCollection.h>
 #include <Utils/Math/DerivOrderEnum.h>
 #include <Utils/Math/FullSecondDerivativeCollection.h>

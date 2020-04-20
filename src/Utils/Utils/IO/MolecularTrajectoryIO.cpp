@@ -8,7 +8,7 @@
 #include "Utils/Constants.h"
 #include "Utils/Geometry/AtomCollection.h"
 #include "Utils/Geometry/ElementInfo.h"
-#include "Utils/IO/Logger.h"
+//#include "Utils/IO/Logger.h"
 #include "Utils/MolecularTrajectory.h"
 #include <fstream>
 #include <iomanip>

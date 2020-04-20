@@ -62,7 +62,11 @@ std::vector<IntegerType> UniqueRandomNumbersGenerator<IntegerType>::generate(uns
 
   std::vector<IntegerType> shuffler(max_ - min_ + 1);
   std::iota(shuffler.begin(), shuffler.end(), min_);
-  std::random_shuffle(shuffler.begin(), shuffler.end());
+  // IDW 2020-04-20: std::random_shuffle is removed in C++17. Replace with std::shuffle
+//  std::random_shuffle(shuffler.begin(), shuffler.end());
+  std::random_device rd;
+  std::mt19937 g(rd);
+  std::shuffle(shuffler.begin(), shuffler.end(), g);
   return {shuffler.begin(), shuffler.begin() + N};
 }
 

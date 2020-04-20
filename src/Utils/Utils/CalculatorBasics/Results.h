@@ -11,6 +11,8 @@
 
 #include "Utils/MethodEssentials/util/DipoleMatrix.h"
 #include "Utils/MethodEssentials/util/SpinAdaptedMatrix.h"
+// IDW: Added 2020-04-20 so can extract MolecularOrbitals from Results object
+#include "Utils/MethodEssentials/util/MolecularOrbitals.h"
 #include "Utils/Typenames.h"
 #include <exception>
 #include <memory>
@@ -103,6 +105,11 @@ class Results {
   const BondOrderCollection& getBondOrders() const;
   BondOrderCollection takeBondOrders();
 
+  bool hasMolecularOrbitals() const;
+  void setMolecularOrbitals(MolecularOrbitals);
+  const MolecularOrbitals& getMolecularOrbitals() const;
+  MolecularOrbitals takeMolecularOrbitals();
+  
  private:
   struct Impl; // pImpl idiom
   std::unique_ptr<Impl> pImpl_;

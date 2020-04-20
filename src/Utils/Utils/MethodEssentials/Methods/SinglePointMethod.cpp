@@ -95,22 +95,22 @@ void SinglePointMethod::setAtomicCharges(const std::vector<double>& charges) {
 };
 
 void SinglePointMethod::startLogger(const std::string& loggerSeverity) const {
-  if (loggerSeverity == SettingsNames::LogLevels::none)
-    Log::stopConsoleLogging();
-  else if (loggerSeverity == SettingsNames::LogLevels::trace)
-    Log::startConsoleLogging(Log::severity_level::trace);
-  else if (loggerSeverity == SettingsNames::LogLevels::debug)
-    Log::startConsoleLogging(Log::severity_level::debug);
-  else if (loggerSeverity == SettingsNames::LogLevels::info)
-    Log::startConsoleLogging(Log::severity_level::info);
-  else if (loggerSeverity == SettingsNames::LogLevels::warning)
-    Log::startConsoleLogging(Log::severity_level::warning);
-  else if (loggerSeverity == SettingsNames::LogLevels::error)
-    Log::startConsoleLogging(Log::severity_level::error);
-  else if (loggerSeverity == SettingsNames::LogLevels::fatal)
-    Log::startConsoleLogging(Log::severity_level::fatal);
-  else
-    throw UniversalSettings::OptionDoesNotExistException(loggerSeverity, SettingsNames::loggerVerbosity);
+//  if (loggerSeverity == SettingsNames::LogLevels::none)
+//    Log::stopConsoleLogging();
+//  else if (loggerSeverity == SettingsNames::LogLevels::trace)
+//    Log::startConsoleLogging(Log::severity_level::trace);
+//  else if (loggerSeverity == SettingsNames::LogLevels::debug)
+//    Log::startConsoleLogging(Log::severity_level::debug);
+//  else if (loggerSeverity == SettingsNames::LogLevels::info)
+//    Log::startConsoleLogging(Log::severity_level::info);
+//  else if (loggerSeverity == SettingsNames::LogLevels::warning)
+//    Log::startConsoleLogging(Log::severity_level::warning);
+//  else if (loggerSeverity == SettingsNames::LogLevels::error)
+//    Log::startConsoleLogging(Log::severity_level::error);
+//  else if (loggerSeverity == SettingsNames::LogLevels::fatal)
+//    Log::startConsoleLogging(Log::severity_level::fatal);
+//  else
+//    throw UniversalSettings::OptionDoesNotExistException(loggerSeverity, SettingsNames::loggerVerbosity);
 }
 
 void SinglePointMethod::resizeRealTimeMethodMembers() {
