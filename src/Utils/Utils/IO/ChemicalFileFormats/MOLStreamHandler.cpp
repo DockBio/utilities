@@ -242,13 +242,13 @@ std::pair<AtomCollection, BondOrderCollection> MOLStreamHandler::read(std::istre
     // The aaa and bbb substrings must be valid integers
     try {
       std::size_t convertedChars = 0;
-      atomBlockSize = std::stoul(line.substr(0, 3), &convertedChars);
+      atomBlockSize = (unsigned int)std::stoul(line.substr(0, 3), &convertedChars);
       if (convertedChars != 3) {
         atomBlockSize = 0;
         continue;
       }
 
-      bondBlockSize = std::stoul(line.substr(3, 3), &convertedChars);
+      bondBlockSize = (unsigned int)std::stoul(line.substr(3, 3), &convertedChars);
       if (convertedChars != 3) {
         bondBlockSize = 0;
         continue;
@@ -333,15 +333,15 @@ std::pair<AtomCollection, BondOrderCollection> MOLStreamHandler::read(std::istre
       try {
         std::size_t convertedChars = 0;
         // MOLFile indices are 1-based, thus subtract one
-        a = std::stoul(line.substr(0, 3), &convertedChars) - 1;
+        a = (unsigned int)std::stoul(line.substr(0, 3), &convertedChars) - 1;
         if (convertedChars != 3) {
           throw std::exception();
         }
-        b = std::stoul(line.substr(3, 3), &convertedChars) - 1;
+        b = (unsigned int)std::stoul(line.substr(3, 3), &convertedChars) - 1;
         if (convertedChars != 3) {
           throw std::exception();
         }
-        molBondSpecifier = std::stoul(line.substr(6, 3), &convertedChars);
+        molBondSpecifier = (unsigned int)std::stoul(line.substr(6, 3), &convertedChars);
         if (convertedChars != 3) {
           throw std::exception();
         }

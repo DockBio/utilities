@@ -19,7 +19,7 @@ BondOrderCollection BondDetector::detectBonds(const AtomCollection& atoms) {
 
 BondOrderCollection BondDetector::detectBonds(const ElementTypeCollection& elements, const PositionCollection& positions) {
   assert(elements.size() == positions.rows());
-  BondOrderCollection bc(elements.size());
+  BondOrderCollection bc((int)elements.size());
 
   for (int i = 0; i < elements.size(); ++i) {
     for (int j = 0; j < i; ++j) {

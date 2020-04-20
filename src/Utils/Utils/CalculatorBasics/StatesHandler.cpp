@@ -45,7 +45,7 @@ void StatesHandler::clear() {
 }
 
 int StatesHandler::size() const {
-  return states_.size();
+  return (int)states_.size();
 }
 
 } // namespace Utils

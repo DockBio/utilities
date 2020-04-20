@@ -148,7 +148,7 @@ AtomCollection XYZStreamHandler::read(std::istream& is) {
 
   // Add any extra positions encountered
   if (!extraPositions.empty()) {
-    const unsigned nExtra = extraPositions.size();
+    const unsigned nExtra = (unsigned)extraPositions.size();
     positions.conservativeResize(nAtoms + nExtra, Eigen::NoChange_t());
     for (unsigned i = 0; i < nExtra; ++i) {
       positions.row(nAtoms + i) = extraPositions[i];

@@ -20,7 +20,7 @@ NormalModeAnalyzer::NormalModeAnalyzer(const HessianMatrix& hessian, const Eleme
 }
 
 NormalModesContainer NormalModeAnalyzer::calculateNormalModes() {
-  nAtoms_ = elements_.size();
+  nAtoms_ = (int)elements_.size();
 
   HessianUtilities diagonalizer(hessian_, elements_, positions_);
 

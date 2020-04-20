@@ -73,7 +73,7 @@ int MolecularTrajectory::size() const {
 }
 
 int MolecularTrajectory::molecularSize() const {
-  return elements_.size();
+  return (int)elements_.size();
 }
 
 MolecularTrajectory::iterator MolecularTrajectory::begin() {

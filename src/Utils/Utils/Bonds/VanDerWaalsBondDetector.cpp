@@ -20,7 +20,7 @@ BondOrderCollection VanDerWaalsBondDetector::detectBonds(const AtomCollection& a
 BondOrderCollection VanDerWaalsBondDetector::detectBonds(const ElementTypeCollection& elements,
                                                          const PositionCollection& positions) {
   assert(elements.size() == positions.size());
-  BondOrderCollection bc(elements.size());
+  BondOrderCollection bc((int)elements.size());
 
   for (int i = 0; i < elements.size(); ++i) {
     for (int j = 0; j < i; ++j) {

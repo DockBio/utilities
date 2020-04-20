@@ -89,7 +89,7 @@ Position AtomCollection::getPosition(int i) const {
 }
 
 int AtomCollection::size() const {
-  return elements_.size();
+  return (int)elements_.size();
 }
 
 Atom AtomCollection::operator[](int i) const {
