@@ -8,7 +8,7 @@
 #include "RandomOrbitalMixer.h"
 #include "UniqueRandomNumbersGenerator.h"
 #include <Utils/DataStructures/MolecularOrbitals.h>
-//#include <Utils/IO/Logger.h>
+#include <Utils/IO/Logger.h>
 #include <random>
 
 namespace Scine {

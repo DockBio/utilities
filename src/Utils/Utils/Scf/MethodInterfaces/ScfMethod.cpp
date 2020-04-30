@@ -5,8 +5,8 @@
  *            See LICENSE.txt for details.
  */
 
-#include "SCFMethod.h"
-//#include <Utils/IO/Logger.h>
+#include "ScfMethod.h"
+#include <Utils/IO/Logger.h>
 #include <Utils/Math/AutomaticDifferentiation/Second3D.h>
 #include <Utils/Scf/LcaoUtils/ElectronicOccupationGenerator.h>
 #include <Utils/Scf/LcaoUtils/LcaoUtils.h>

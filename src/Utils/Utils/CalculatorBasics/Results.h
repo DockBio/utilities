@@ -74,11 +74,6 @@ class Results {
     resultsMap_.erase(property);
     return result;
   }
-
-  bool hasMolecularOrbitals() const;
-  void setMolecularOrbitals(MolecularOrbitals);
-  const MolecularOrbitals& getMolecularOrbitals() const;
-  MolecularOrbitals takeMolecularOrbitals();
   
  private:
   std::map<Property, boost::any> resultsMap_;

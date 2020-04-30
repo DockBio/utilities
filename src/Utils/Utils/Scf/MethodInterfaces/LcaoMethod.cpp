@@ -9,7 +9,7 @@
 #include "OverlapCalculator.h"
 #include "StructureDependentInitializer.h"
 #include <Utils/DataStructures/MatrixWithDerivatives.h>
-//#include <Utils/IO/Logger.h>
+#include <Utils/IO/Logger.h>
 #include <Utils/Math/AutomaticDifferentiation/MethodsTypesHelper.h>
 #include <Utils/Scf/LcaoUtils/AufbauPrincipleOccupationGenerator.h>
 #include <Utils/Scf/LcaoUtils/DensityMatrixGenerator.h>
