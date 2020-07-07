@@ -20,7 +20,7 @@ std::string lineEnd() {
 
 std::string floatingPointNumber() {
   // NB: syntax (?:.....), instead of (.....), makes sure that the parenthesis is not captured
-  return R"([-+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)";
+  return R"(\s*[-+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)";
 }
 
 std::string capturingFloatingPointNumber() {
