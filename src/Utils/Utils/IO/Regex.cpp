@@ -28,7 +28,7 @@ std::string capturingFloatingPointNumber() {
 }
 
 std::string integerNumber() {
-  return R"([+-]?\d+)";
+  return R"(\s*[+-]?\d+)";
 }
 
 std::string capturingIntegerNumber() {
