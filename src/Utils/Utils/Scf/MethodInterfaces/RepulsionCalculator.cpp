@@ -53,7 +53,11 @@ void RepulsionCalculator::calculateRepulsion(Utils::derivOrder order) {
   for (int i = 0; i < elements_.size(); ++i) {
 #pragma omp parallel for schedule(static)
     for (int j = i + 1; j < elements_.size(); ++j) {
-      const auto thread = omp_get_thread_num();
+#if defined(_OPENMP)
+      const int thread = omp_get_thread_num();
+#else
+      const int thread = 0;
+#endif
       Eigen::RowVector3d distanceVector = positions_.row(j) - positions_.row(i);
       const double distance = distanceVector.norm();
       const double repulsionConstant = charges[i] * charges[j];
